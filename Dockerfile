@@ -8,6 +8,7 @@ RUN apt -y dist-upgrade
 RUN apt -y install \
   bc \
   build-essential \
+  curl \
   git \
   libssl-dev \
   python \
