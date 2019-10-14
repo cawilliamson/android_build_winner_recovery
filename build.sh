@@ -6,7 +6,7 @@ docker run \
   -v $(pwd)/out:/out \
   buildkernel \
   /bin/bash -c " \
-  git clone -b custom https://github.com/cawilliamson/samsung_sm907b_kernel /usr/src/kernel && \
+  git clone https://github.com/cawilliamson/samsung_sm907b_kernel /usr/src/kernel && \
   cd /usr/src/kernel && \
   bash build_kernel.sh && \
   cd /var/tmp && \
