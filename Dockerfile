@@ -11,9 +11,12 @@ RUN apt -y install \
   curl \
   git \
   libssl-dev \
+  m4 \
   python \
   python-pip \
   python3 \
+  repo \
+  rsync \
   wget
 
 RUN pip install gdown

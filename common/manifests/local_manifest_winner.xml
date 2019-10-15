@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+<project path="device/samsung/winner" name="cawilliamson/samsung_sm907b_twrp" groups="device" remote="github" revision="master" />
+</manifest>

@@ -1,18 +1,20 @@
 #!/usr/bin/env bash
 
-docker build -t buildkernel .
+docker build -t buildrecovery .
 docker run \
   -v $(pwd)/common:/common \
   -v $(pwd)/out:/out \
-  buildkernel \
+  buildrecovery \
   /bin/bash -c " \
-  git clone https://github.com/cawilliamson/samsung_sm907b_kernel /usr/src/kernel && \
-  cd /usr/src/kernel && \
-  bash build_kernel.sh && \
-  cd /var/tmp && \
-  cp -fv /common/imgs/recovery.img recovery.img && \
-  /common/bin/magiskboot unpack recovery.img && \
-  cp -fv /usr/src/kernel/arch/arm64/boot/Image kernel && \
-  /common/bin/magiskboot repack recovery.img new-recovery.img && \
-  cp -fv /var/tmp/new-recovery.img /out/patched-recovery.img && \
+  mkdir -p /usr/src/recovery
+  cd /usr/src/recovery
+  repo init --depth=1 -u git://github.com/minimal-manifest-twrp/platform_manifest_twrp_omni.git -b twrp-9.0 && \
+  mkdir -p .repo/local_manifests/ && \
+  cp -v /common/manifests/local_manifest_winner.xml .repo/local_manifests/ && \
+  repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags && \
+  export ALLOW_MISSING_DEPENDENCIES=true && \
+  . build/envsetup.sh && \
+  lunch omni_winner-eng && \
+  mka recoveryimage && \
+  cp -fv /usr/src/recovery/out/target/product/winner/recovery.img /out/patched_recovery.img && \
   chmod -v 777 /out/*"
