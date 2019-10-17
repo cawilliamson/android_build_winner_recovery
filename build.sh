@@ -5,8 +5,8 @@ docker run \
   -v $(pwd)/common:/common \
   -v $(pwd)/out:/out \
   buildrecovery \
-  /bin/bash -c " \
-  mkdir -p /usr/src/recovery
+  /bin/bash -c \
+  "mkdir -p /usr/src/recovery
   cd /usr/src/recovery
   repo init --depth=1 -u git://github.com/minimal-manifest-twrp/platform_manifest_twrp_omni.git -b twrp-9.0 && \
   mkdir -p .repo/local_manifests/ && \
@@ -16,5 +16,5 @@ docker run \
   . build/envsetup.sh && \
   lunch omni_winner-eng && \
   mka recoveryimage && \
-  cp -fv /usr/src/recovery/out/target/product/winner/recovery.img /out/patched_recovery.img && \
+  cp -fv /usr/src/recovery/out/target/product/winner/recovery.img /out/recovery.img && \
   chmod -v 777 /out/*"
