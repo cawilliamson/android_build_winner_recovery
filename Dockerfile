@@ -18,7 +18,7 @@ RUN apt -y install \
   rsync \
   wget
 
-RUN curl https://storage.googleapis.com/git-repo-downloads/repo > /usr/local/bin/repo
+RUN wget -O /usr/local/bin/repo https://storage.googleapis.com/git-repo-downloads/repo
 RUN chmod +x /usr/local/bin/repo
 
 RUN pip install gdown
