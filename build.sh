@@ -11,7 +11,7 @@ docker run \
   repo init --depth=1 -u git://github.com/minimal-manifest-twrp/platform_manifest_twrp_omni.git -b twrp-9.0 && \
   mkdir -p .repo/local_manifests/ && \
   cp -v /common/manifests/local_manifest_winner.xml .repo/local_manifests/ && \
-  repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags && \
+  repo sync -c -j$(nproc --all) --no-clone-bundle --no-tags && \
   export ALLOW_MISSING_DEPENDENCIES=true && \
   . build/envsetup.sh && \
   lunch omni_winner-eng && \

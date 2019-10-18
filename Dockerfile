@@ -8,7 +8,6 @@ RUN apt -y dist-upgrade
 RUN apt -y install \
   bc \
   build-essential \
-  curl \
   git \
   libssl-dev \
   m4 \
@@ -19,6 +18,8 @@ RUN apt -y install \
   rsync \
   wget
 
+RUN curl https://storage.googleapis.com/git-repo-downloads/repo > /usr/local/bin/repo
+RUN chmod +x /usr/local/bin/repo
 RUN pip install gdown
 
 RUN git clone \
