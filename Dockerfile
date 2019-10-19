@@ -14,7 +14,6 @@ RUN apt -y install \
   python \
   python-pip \
   python3 \
-  repo \
   rsync \
   wget
 
