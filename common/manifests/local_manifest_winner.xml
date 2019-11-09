@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-<project path="device/samsung/winner" name="cawilliamson/android_device_samsung_winner_recovery" groups="device" remote="github" revision="master" />
+<project path="device/samsung/winnerx" name="cawilliamson/android_device_samsung_winnerx_recovery" groups="device" remote="github" revision="master" />
 </manifest>

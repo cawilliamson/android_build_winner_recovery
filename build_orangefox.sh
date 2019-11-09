@@ -14,7 +14,7 @@ docker run \
   repo sync -c -j$(nproc --all) --no-clone-bundle --no-tags && \
   export ALLOW_MISSING_DEPENDENCIES=true && \
   . build/envsetup.sh && \
-  lunch omni_winner-eng && \
+  lunch omni_winnerx-eng && \
   mka recoveryimage && \
   cp -fv /usr/src/recovery/out/target/product/winner/recovery.img /out/recovery.img && \
   chmod -v 777 /out/*"
