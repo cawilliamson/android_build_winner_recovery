@@ -9,7 +9,7 @@ docker run \
   "mkdir -p /usr/src/recovery
   cd /usr/src/recovery
   repo init --depth=1 -u https://gitlab.com/OrangeFox/Manifest.git -b fox_9.0 && \
-  test -f "/usr/src/recovery/.repo/repo/repo" && mv -f "/usr/src/recovery/.repo/repo/repo" "/usr/local/bin/repo" && \
+  test -f "/usr/src/recovery/.repo/repo/repo" && cp -fv "/usr/src/recovery/.repo/repo/repo" "/usr/local/bin/repo" && \
   mkdir -p .repo/local_manifests/ && \
   cp -v /common/manifests/local_manifest_winner.xml .repo/local_manifests/ && \
   repo sync -c -j$(nproc --all) --no-clone-bundle --no-tags && \
