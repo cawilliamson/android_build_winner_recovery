@@ -13,7 +13,6 @@ docker run \
   mkdir -p .repo/local_manifests/ && \
   cp -v /common/manifests/local_manifest_winner.xml .repo/local_manifests/ && \
   repo sync -c -j$(nproc --all) --no-clone-bundle --no-tags && \
-  export ALLOW_MISSING_DEPENDENCIES=true && \
   . build/envsetup.sh && \
   lunch omni_winnerx-eng && \
   mka recoveryimage && \
