@@ -18,5 +18,5 @@ docker run \
   . build/envsetup.sh && \
   lunch omni_winnerx-eng && \
   mka recoveryimage && \
-  cp -fv /usr/src/recovery/out/target/product/winnerx/recovery.img /out/recovery.img && \
+  cp -fv /usr/src/recovery/out/target/product/winnerx/recovery.img /out/twrp.img && \
   chmod -v 777 /out/*"
