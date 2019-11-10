@@ -9,6 +9,7 @@ docker run \
   "mkdir -p /usr/src/recovery
   cd /usr/src/recovery
   repo init --depth=1 -u git://github.com/minimal-manifest-twrp/platform_manifest_twrp_omni.git -b twrp-9.0 && \
+  test -f "/usr/src/recovery/.repo/repo/repo" && mv -f "/usr/src/recovery/.repo/repo/repo" "/usr/local/bin/repo" && \
   mkdir -p .repo/local_manifests/ && \
   cp -v /common/manifests/local_manifest_winner.xml .repo/local_manifests/ && \
   repo sync -c -j$(nproc --all) --no-clone-bundle --no-tags && \
