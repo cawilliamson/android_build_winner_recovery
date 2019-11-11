@@ -17,10 +17,11 @@ docker run \
   cp -v /common/manifests/local_manifest_winnerx.xml .repo/local_manifests/ && \
   repo sync -j$(nproc --all) && \
   # HACK - START
+  rm -rf bootable/recovery && \
+  git clone https://github.com/omnirom/android_bootable_recovery.git bootable/recovery && \
   cd bootable/recovery && \
   git reset --hard a895118a1fb88595d41c7e29b079d9f3c547258c && \
-  git pull && \
-  cd ../../.. && \
+  cd ../.. && \
   # HACK - END
  . build/envsetup.sh && \
   lunch omni_winnerx-eng && \
