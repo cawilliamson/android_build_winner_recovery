@@ -4,6 +4,7 @@ docker build -t buildrecovery .
 docker run \
   -v $(pwd)/common:/common \
   -v $(pwd)/out:/out \
+  -v $(pwd)/src:/usr/src \
   buildrecovery \
   /bin/bash -c \
   "mkdir -p /usr/src/recovery && \
@@ -14,8 +15,14 @@ docker run \
     -b twrp-9.0 && \
   mkdir -p .repo/local_manifests/ && \
   cp -v /common/manifests/local_manifest_winnerx.xml .repo/local_manifests/ && \
-  repo sync -c -j$(nproc --all) --no-clone-bundle --no-tags && \
-  . build/envsetup.sh && \
+  repo sync -j$(nproc --all) && \
+  # HACK - START
+  cd bootable/recovery && \
+  git reset --hard a895118a1fb88595d41c7e29b079d9f3c547258c && \
+  git pull && \
+  cd ../../.. && \
+  # HACK - END
+ . build/envsetup.sh && \
   lunch omni_winnerx-eng && \
   mka recoveryimage && \
   cp -fv /usr/src/recovery/out/target/product/winnerx/recovery.img /out/twrp.img && \
