@@ -15,6 +15,9 @@ docker run \
     -b twrp-9.0 && \
   mkdir -p .repo/local_manifests/ && \
   cp -v /common/manifests/local_manifest_winnerx.xml .repo/local_manifests/ && \
+  # HACK - START
+  rm -rf bootable/recovery
+  # HACK - END
   repo sync -j$(nproc --all) && \
   # HACK - START
   rm -rf bootable/recovery && \
