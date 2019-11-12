@@ -22,5 +22,3 @@ RUN apt -y install \
 
 RUN wget -O /usr/local/bin/repo https://storage.googleapis.com/git-repo-downloads/repo
 RUN chmod +x /usr/local/bin/repo
-
-RUN pip install gdown
